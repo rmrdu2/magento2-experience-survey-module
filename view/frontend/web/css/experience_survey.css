@@ -1,0 +1,30 @@
+#popup-modal{
+  display: none;
+}
+
+ul.hatslogic-smileys {
+    width: 100%;
+    text-align: center;
+  }
+  
+  ul.hatslogic-smileys > li {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  ul.hatslogic-smileys > li > img {
+    width: 100px;
+    height:100px;
+  }
+  li.active {
+    border-radius: 100px;
+    border: solid #84e3ea;
+  } 
+  .hatslogic-order-rating{ 
+    width: 50%; 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }

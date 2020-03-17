@@ -1,0 +1,39 @@
+<canvas id="myChart" width="400" height="400"></canvas>
+<?php 
+$analytics = $block->getAnalytics();
+$labels = array_column($analytics, 'label'); 
+$values = array_column($analytics, 'count'); 
+$colors = array_column($analytics,'color');
+?>
+<script type="text/javascript">
+       require([
+        "jquery",
+        "Chart",
+        //"domReady!"
+    ], function ($, Chart) {
+
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?php echo json_encode( $labels) ?>,
+                datasets: [{
+                    label: '# of Votes',
+                    data: <?php echo json_encode( $values) ?>,
+                    backgroundColor:  <?php echo json_encode( $colors) ?>,
+                    borderColor:  <?php echo json_encode( $colors) ?>,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    });
+</script>

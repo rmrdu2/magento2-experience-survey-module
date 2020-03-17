@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Hatslogic Team
+* @copyright Copyright (c) 2020 Hatslogic (https://www.2hatslogic.com)
+* @package Hatslogic_ExperienceSurvey
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+   <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+       <plugin name="checkout_custom_shipping_fields" type="Hatslogic\ExperienceSurvey\Plugin\Checkout\LayoutProcessorPlugin" sortOrder="10"/>
+   </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="save-in-quote" type="Hatslogic\ExperienceSurvey\Model\Checkout\ShippingInformationManagementPlugin" sortOrder="10"/>
+    </type>
+    
+</config>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+         
+        <title>
+            Experience Survey Analytics
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="graph.container" htmlTag="div" htmlClass="col-m-6 col-m-push-6">
+                <!-- Force container to render -->
+                <block class="Hatslogic\ExperienceSurvey\Block\Adminhtml\Index" template="Hatslogic_ExperienceSurvey::index.phtml"/>
+            </container>
+            <container name="grid.container" htmlTag="div" htmlClass="col-m-6 col-m-pull-6">
+                <block class="Hatslogic\ExperienceSurvey\Block\Adminhtml\OrderReviews" name="hatslogic_experience_survey_grid">
+                    <block class="Magento\Backend\Block\Widget\Grid" name="hatslogic_experience_survey_grid.grid" as="grid">
+                        <arguments>
+                            <argument name="dataSource" xsi:type="object">Hatslogic\ExperienceSurvey\Model\ResourceModel\CustomerRating\Collection</argument>
+                            <argument name="default_sort" xsi:type="string">id</argument>
+                            <argument name="default_dir" xsi:type="string">ASC</argument>
+                            <argument name="save_parameters_in_session" xsi:type="string">1</argument>
+                        </arguments>
+                        <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="hatslogic_experience_survey_grid.grid.columnSet" as="grid.columnSet">
+                            
+                            <block class="Magento\Backend\Block\Widget\Grid\Column" as="customer_email">
+                                <arguments>
+                                    <argument name="header" xsi:type="string" translate="true">Email</argument>
+                                    <argument name="index" xsi:type="string">customer_email</argument>
+                                    <argument name="type" xsi:type="string">text</argument>
+                                    <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                    <argument name="header_css_class" xsi:type="string">col-id</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Backend\Block\Widget\Grid\Column" as="comment">
+                                <arguments>
+                                    <argument name="header" xsi:type="string" translate="true">Comment</argument>
+                                    <argument name="index" xsi:type="string">comment</argument>
+                                    <argument name="type" xsi:type="string">text</argument>
+                                    <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                    <argument name="header_css_class" xsi:type="string">col-id</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Backend\Block\Widget\Grid\Column" as="rating">
+                                <arguments>
+                                    <argument name="header" xsi:type="string" translate="true">Rating</argument>
+                                    <argument name="index" xsi:type="string">rating</argument>
+                                    <argument name="type" xsi:type="string">text</argument>
+                                    <argument name="renderer" xsi:type="string">Hatslogic\ExperienceSurvey\Block\Adminhtml\Widget\OrderReviews\Column\Renderer\Rating</argument>
+                                    <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                    <argument name="header_css_class" xsi:type="string">col-id</argument>
+                                </arguments>
+                            </block>
+                        </block>
+                    </block>
+                </block>
+             
+            </container>
+        </referenceContainer>
+    </body>
+</page>

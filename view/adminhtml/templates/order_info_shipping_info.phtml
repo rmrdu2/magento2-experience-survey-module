@@ -1,0 +1,16 @@
+<?php
+$helper = $this->helper("Hatslogic\ExperienceSurvey\Helper\Data");
+$display_label = $helper->getGeneralConfig('display_label');
+?>
+<div id="experience_survey_option">
+    <strong><?php echo __($display_label) ?></strong>
+    <span class="price"><?=$block->getExperienceSurveyOption() ?></span></div>
+<script type="text/javascript">
+    require(
+        ['jquery'],
+        function($) {
+            var element = $('#experience_survey_option').detach();
+            $('.order-shipping-method').append(element);
+        }
+    );
+</script>
